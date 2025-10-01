@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripNest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">TripNest</div>
+        <div class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#packages">Packages</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#blog">Blog</a>
+            <a href="travel-plans.html">Travel Plans</a>
+        </div>
+        <div class="nav-icons">
+            <i class="fas fa-search" onclick="toggleSearchModal()"></i>
+            <i class="fas fa-user" onclick="alert('Login functionality coming soon!')"></i>
+        </div>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+    </nav>
+    <div class="modal" id="search-modal">
+    <div class="modal-content search-modal">
+        <span class="close" onclick="closeSearchModal()">&times;</span>
+        <h2>Search Destinations & Packages</h2>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search destinations, packages, or activities..." autocomplete="off">
+            <button class="search-btn" onclick="performSearch()">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        
+        <div class="search-filters">
+            <select id="search-category">
+                <option value="all">All Categories</option>
+                <option value="destinations">Destinations</option>
+                <option value="packages">Packages</option>
+                <option value="activities">Activities</option>
+            </select>
+            <select id="price-range">
+                <option value="all">All Prices</option>
+                <option value="0-500">$0 - $500</option>
+                <option value="500-1000">$500 - $1000</option>
+                <option value="1000-2000">$1000 - $2000</option>
+                <option value="2000+">$2000+</option>
+            </select>
+        </div>
+
+        <div id="search-results" class="search-results">
+            <div class="search-suggestions">
+                <h3>Popular Searches:</h3>
+                <div class="suggestion-tags">
+                    <span class="tag" onclick="searchFor('Beach destinations')">Beach destinations</span>
+                    <span class="tag" onclick="searchFor('Mountain adventure')">Mountain adventure</span>
+                    <span class="tag" onclick="searchFor('City breaks')">City breaks</span>
+                    <span class="tag" onclick="searchFor('Luxury travel')">Luxury travel</span>
+                    <span class="tag" onclick="searchFor('Budget trips')">Budget trips</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Discover Your Next Adventure</h1>
+            <p>Explore breathtaking destinations with our curated travel packages.</p>
+            <button class="cta-button" onclick="openModal('')">Book Your Adventure</button>
+            <button class="cta-button secondary" onclick="scrollToSection('#packages')">Explore Packages</button>
+        </div>
+    </section>
+    <!-- Destinations Section -->
+    <section class="destinations" id="destinations">
+        <h2>Top Destinations</h2>
+        <div class="destination-carousel">
+            <div class="destination-grid">
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1499678329028-101435549a4e" alt="Paris">
+                    </div>
+                    <h3>Paris, France</h3>
+                    <p>Romance and culture in the City of Light.</p>
+                    <button class="cta-button" onclick="window.open('https://www.pariscitytours.fr/', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.eX8QMRR4iZtzA31WPXa39AHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Bali">
+                    </div>
+                    <h3>Bali, Indonesia</h3>
+                    <p>Stunning beaches and lush jungles.</p>
+                    <button class="cta-button" onclick="window.open('https://www.thebalipackage.com/', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://static01.nyt.com/images/2012/05/06/nyregion/06BIG_SPAN/BIG-superJumbo.jpg" alt="New York">
+                    </div>
+                    <h3>New York, USA</h3>
+                    <p>The city that never sleeps.</p>
+                    <button class="cta-button" onclick="window.open('https://blueorangetravel.com/', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://s.yimg.com/ny/api/res/1.2/OSfOf0_b1btOoJBAhnPLPA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQyNw--/https://s.yimg.com/os/creatr-uploaded-images/2021-07/59a4bc60-f23c-11eb-bf75-c38993010fb7" alt="Tokyo">
+                    </div>
+                    <h3>Tokyo, Japan</h3>
+                    <p>Vibrant culture and modern wonders.</p>
+                    <button class="cta-button" onclick="window.open('https://www.getyourguide.com/tokyo-l193/', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.CamCUcbsCGSHw1t3D3y6KgHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Santorini">
+                    </div>
+                    <h3>Santorini, Greece</h3>
+                    <p>Iconic whitewashed buildings and sunsets.</p>
+                    <button class="cta-button" onclick="window.open('https://www.santorini-view.com/', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://www.fodors.com/wp-content/uploads/2019/01/Maldives2.gif" alt="Maldives">
+                    </div>
+                    <h3>Maldives</h3>
+                    <p>Crystal-clear waters, overwater villas, and vibrant marine life.</p>
+                    <button class="cta-button" onclick="window.open('https://www.thomascook.in/holidays/international-tour-packages/maldives-tour-packages', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c" alt="Dubai">
+                    </div>
+                    <h3>Dubai, UAE</h3>
+                    <p>Luxury shopping, ultramodern architecture, and desert adventures.</p>
+                    <button class="cta-button" onclick="window.open('https://booking.visitdubai.com/en', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1589394815804-964ed0be2eb5" alt="Phuket">
+                    </div>
+                    <h3>Phuket, Thailand</h3>
+                    <p>Tropical paradise with stunning beaches and vibrant nightlife.</p>
+                    <button class="cta-button" onclick="window.open('https://booking.visitdubai.com/en', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7" alt="Swiss Alps">
+                    </div>
+                    <h3>Swiss Alps, Switzerland</h3>
+                    <p>Majestic mountains, pristine lakes, and charming Alpine villages.</p>
+                    <button class="cta-button" onclick="window.open('https://www.myswitzerland.com/en-in/experiences/experience-tour/highlights-by-train-bus-and-boat/grand-train-tour-of-switzerland/tickets-reservations-timetables/', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3" alt="Reykjavik">
+                    </div>
+                    <h3>Reykjavik, Iceland</h3>
+                    <p>Northern lights, geysers, and dramatic volcanic landscapes.</p>
+                    <button class="cta-button" onclick="window.open('https://guidetoiceland.is/', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://i0.wp.com/www.hachettebookgroup.com/wp-content/uploads/2019/01/Morocco_ChefchouenAerial_Zzvet-iStock-473937070.jpg?resize=1080,1080&ssl=1" alt="Marrakech">
+                    </div>
+                    <h3>Marrakech, Morocco</h3>
+                    <p>Exotic souks, stunning palaces, and Sahara desert gateway.</p>
+                    <button class="cta-button" onclick="window.open('https://www.visitmarrakech.com/', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325" alt="Rio de Janeiro">
+                    </div>
+                    <h3>Rio de Janeiro, Brazil</h3>
+                    <p>Carnival spirit, Christ the Redeemer, and Copacabana Beach.</p>
+                    <button class="cta-button" onclick="window.open('https://www.riodejaneiro.com/', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://www.telegraph.co.uk/content/dam/eip/audley/egypt/audley-egypt-header-pyramids-giza-credit-getty.jpg?imwidth=1200" alt="Cairo">
+                    </div>
+                    <h3>Cairo, Egypt</h3>
+                    <p>Ancient pyramids, Sphinx, and treasures of the pharaohs.</p>
+                    <button class="cta-button" onclick="window.open('https://www.viator.com/Cairo/d782-ttd', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4" alt="Sydney">
+                    </div>
+                    <h3>Sydney, Australia</h3>
+                    <p>Iconic Opera House, Harbor Bridge, and stunning beaches.</p>
+                    <button class="cta-button" onclick="window.open('https://www.sydney.com/', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2" alt="Goa">
+                    </div>
+                    <h3>Goa, India</h3>
+                    <p>Golden beaches, Portuguese heritage, and vibrant beach culture.</p>
+                    <button class="cta-button" onclick="window.open('https://www.makemytrip.com/holidays-india/goa-travel-packages.html', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://idsb.tmgrup.com.tr/ly/uploads/images/2022/01/13/174612.jpg" alt="Cappadocia">
+                    </div>
+                    <h3>Cappadocia, Turkey</h3>
+                    <p>Hot air balloons, fairy chimneys, and underground cities.</p>
+                    <button class="cta-button" onclick="window.open('https://www.goturkey.com/cappadocia', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1" alt="Machu Picchu">
+                    </div>
+                    <h3>Machu Picchu, Peru</h3>
+                    <p>Ancient Incan citadel high in the Andes Mountains.</p>
+                    <button class="cta-button" onclick="window.open('https://www.peru.travel/en/attractions/machu-picchu', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5" alt="Masai Mara">
+                    </div>
+                    <h3>Masai Mara, Kenya</h3>
+                    <p>Great Migration, Big Five wildlife, and traditional Maasai culture.</p>
+                    <button class="cta-button" onclick="window.open('https://www.kenya.travel/destination/masai-mara/', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://wallpaperaccess.com/full/3904093.jpg" alt="Norwegian Fjords">
+                    </div>
+                    <h3>Norwegian Fjords, Norway</h3>
+                    <p>Dramatic waterfalls, steep cliffs, and pristine Nordic wilderness.</p>
+                    <button class="cta-button" onclick="window.open('https://www.fjordtours.com/en', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1528127269322-539801943592" alt="Ha Long Bay">
+                    </div>
+                    <h3>Ha Long Bay, Vietnam</h3>
+                    <p>Emerald waters, limestone pillars, and floating fishing villages.</p>
+                    <button class="cta-button" onclick="window.open('https://www.halongbaycruises.com/', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96" alt="Petra">
+                    </div>
+                    <h3>Petra, Jordan</h3>
+                    <p>Rose-red carved city, ancient Nabataean architecture, and desert wonders.</p>
+                    <button class="cta-button" onclick="window.open('https://petrapass.pdtra.gov.jo/', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://th.bing.com/th/id/R.274e521cd6598c259226f4fb7532eb69?rik=ZDnYMZ3PD61WoA&riu=http%3a%2f%2finspirationseek.com%2fwp-content%2fuploads%2f2014%2f11%2fPalawan-Island-Philippines-Photography.jpg&ehk=n0k1ZIoMdot2hwMw1QSzRKPKjwm5dKXJ6JPp%2bC4ATeY%3d&risl=&pid=ImgRaw&r=0" alt="Palawan">
+                    </div>
+                    <h3>Palawan, Philippines</h3>
+                    <p>Underground river, pristine lagoons, and world-class diving spots.</p>
+                    <button class="cta-button" onclick="window.open('https://www.booking.com/region/ph/palawan.html', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.HCabqYNobStvu6xl5xFGUQHaE8?r=0&cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Dubrovnik">
+                    </div>
+                    <h3>Dubrovnik, Croatia</h3>
+                    <p>Medieval walls, Game of Thrones locations, and Adriatic coastline.</p>
+                    <button class="cta-button" onclick="window.open('https://www.booking.com/city/hr/dubrovnik.html', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa" alt="Kathmandu">
+                    </div>
+                    <h3>Kathmandu, Nepal</h3>
+                    <p>Himalayan gateway, ancient temples, and trekking adventures.</p>
+                    <button class="cta-button" onclick="window.open('https://www.booking.com/city/np/kathmandu.html', '_blank')">
+                        View More
+                    </button>
+                </div>
+                <div class="destination-card">
+                    <div class="image-wrapper">
+                        <img src="https://wallpaperaccess.com/full/5730164.jpg" alt="Patagonia">
+                    </div>
+                    <h3>Patagonia, Chile</h3>
+                    <p>Glaciers, granite peaks, and pristine wilderness at world's end.</p>
+                    <button class="cta-button" onclick="window.open('https://www.booking.com/region/cl/patagonia.html', '_blank')">
+                        View More
+                    </button>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+    <!-- Packages Section -->
+    <section class="packages" id="packages">
+        <h2>Travel Packages</h2>
+        <div class="package-carousel">
+            <div class="package-grid">
+                <div class="package-card">
+                    <div class="image-wrapper">
+                        <img src="https://th.bing.com/th/id/R.2bd767af5fad8a1898550352b8b2facb?rik=TR7HVvHTSBcfLw&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fIFdgMMQ.jpg&ehk=LVud2RFpDaxYrh7iWIKy9oxSnZ8y90YvMzvKKbSJ98s%3d&risl=&pid=ImgRaw&r=0" alt="Beach Package">
+                    </div>
+                    <h3>Beach Getaway</h3>
+                    <p>Flight + Hotel + Activities</p>
+                    <p class="price">$999</p>
+                    <button class="cta-button" onclick="window.open('https://www.getyourguide.com/s/?q=beach+getaways&searchSource=3', '_blank')">
+                        View Packages
+                    </button>
+                </div>
+                <div class="package-card">
+                    <div class="image-wrapper">
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.Lag3D7ef0p8Ieo_fQh6c2gHaEo?r=0&w=1920&h=1200&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Mountain Package">
+                    </div>
+                    <h3>Mountain Adventure</h3>
+                    <p>Flight + Hotel + Guided Tours</p>
+                    <p class="price">$1299</p>
+                    <button class="cta-button" onclick="window.open('https://www.getyourguide.com/s/?q=mountain+adventures&searchSource=3', '_blank')">
+                        View Packages
+                    </button>
+                </div>
+                <div class="package-card">
+                    <div class="image-wrapper">
+                        <img src="https://th.bing.com/th/id/OIP.VSAzLAkzRY_vY3cj_i3QEgHaFA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="City Package">
+                    </div>
+                    <h3>City Explorer</h3>
+                    <p>Flight + Hotel + City Tours</p>
+                    <p class="price">$799</p>
+                    <button class="cta-button" onclick="window.open('https://www.getyourguide.com/s/?q=beautiful+cities+in+world&searchSource=3', '_blank')">
+                        View Packages
+                    </button>
+                </div>
+                <div class="package-card">
+                    <div class="image-wrapper">
+                        <img src="https://images.nativeplanet.com/ph-big/2024/06/top-10-temples-for-an-unforgettable-spiritual-journey-in-karnataka_171939127140.jpg" alt="City Package">
+                    </div>
+                    <h3>Spiritual Temples</h3>
+                    <p>Flight + Hotel + Temple Tours</p>
+                    <p class="price">$799</p>
+                    <button class="cta-button" onclick="window.open('https://www.easydarshan.com/', '_blank')">
+                        View Packages
+                    </button>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+    <!-- Why Choose Us -->
+    <section class="why-choose-us" id="about">
+        <h2>Why Choose Us?</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <i class="fas fa-headset"></i>
+                <h3>24/7 Support</h3>
+                <p>Always here to help you.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-dollar-sign"></i>
+                <h3>Best Price Guarantee</h3>
+                <p>Affordable adventures.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-user-check"></i>
+                <h3>Verified Guides</h3>
+                <p>Trusted local experts.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-suitcase"></i>
+                <h3>Custom Itineraries</h3>
+                <p>Tailored to your needs.</p>
+            </div>
+        </div>
+        <p><span id="happy-travelers">0</span>+ Happy Travelers</p>
+    </section>
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2>What Our Travelers Say</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.3IWUtRO9b_uR8r5ulbcAEAAAAA?r=0&pid=ImgDet&w=184&h=184&c=7&dpr=1.3&o=7&rm=3" alt="Traveler">
+                    <div class="stars">★★★★★</div>
+                    <p>"It was an amazing experience, darling… The team really planned everything so perfectly… Thank you…Thank you…Thanks alot"</p>
+                    <p><strong>Prabhas</strong></p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.yL_Quns8mMam-ZO8bfhdJQHaLH?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Traveler">
+                    <div class="stars">★★★★★</div>
+                    <p>"Cheppanu Brother… Anta Nachindi Trip!… It was an Unforgettable trip with incredible guides "</p>
+                    <p><strong>Allu Arjun</strong></p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://wallpapercave.com/wp/wp5247635.jpg" alt="Traveler">
+                    <div class="stars">★★★★★</div>
+                    <p>"Mem velli vacham! Meru kuda kutumbasabyulatho velli randi.. Jagrathaga velli randi"</p>
+                    <p><strong>NTR</strong></p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://th.bing.com/th/id/OIP.SVkMKRAPHS0zT4AvzYavOQHaJR?w=208&h=260&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Traveler">
+                    <div class="stars">★★★★★</div>
+                    <p>"Woah!… Nice!… Aa varuna devudu karuninchadu, a atankam raledu. meru kuda vellandi, aa devudi ashishulu meku ellapudu untai… "</p>
+                    <p><strong>Chiranjeevi Konidala</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h2>Get Exclusive Travel Deals</h2>
+        <p>Sign up for a free travel guide!</p>
+        <form id="newsletter-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <button class="cta-button" type="submit">Sign Up</button>
+        </form>
+    </section>
+    <!-- Blog Preview -->
+    <section class="blog-preview" id="blog">
+        <h2>Travel Tips & Stories</h2>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Blog">
+                </div>
+                <h3>Top 10 Beach Destinations</h3>
+                <p>Discover the best beaches for your next vacation.</p>
+                <button class="cta-button" onclick="window.open('https://www.ndtv.com/travel/10-best-beaches-in-the-world-for-2025-according-to-tripadvisor-7805446', '_blank')">
+                    Read More
+                </button>
+            </div>
+            <div class="blog-card">
+                <div class="image-wrapper">
+                    <img src="https://d368ufu7xgcs86.cloudfront.net/5768-1532338748.jpg" alt="Blog">
+                </div>
+                <h3>Budget Travel Tips</h3>
+                <p>Explore the world without breaking the bank.</p>
+                <button class="cta-button" onclick="window.open('https://traveltriangle.com/blog/budget-trips-in-india/', '_blank')">
+                    Read More
+                </button>
+            </div>
+            <div class="blog-card">
+                <div class="image-wrapper">
+                    <img src="https://www.luxurygold.com/lg/wp-content/uploads/2025/01/getty-images-kcHkbytoiSQ-unsplash-1024x683.jpg" alt="Blog">
+                </div>
+                <h3>Luxury City Breaks</h3>
+                <p>Indulge in the finest urban experiences.</p>
+                <button class="cta-button" onclick="window.open('https://www.luxurygold.com/lg/most-expensive-cities-in-the-world/', '_blank')">
+                    Read More
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#">FAQ</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/shiva-ram-reddy-gunnala-1861b42a9/" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/Shiva3505" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:Shiva03505@gmail.com" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        <p>Contact: Shiva03505@gmail.com | +917801043389 | 123 Travel St, World</p>
+        <p>Made with ❤️ by G Shiva Ram Reddy</p>
+        <p>&copy; 2025 TripNest. All rights reserved.</p>
+        <button class="cta-button" onclick="openModal('')">Start My Trip</button>
+    </footer>
+    <!-- Booking Modal -->
+    <div class="modal" id="booking-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Book Your Trip</h2>
+            <div class="progress-bar">
+                <div class="step active">Step 1: Trip Details</div>
+                <div class="step">Step 2: Traveler Info</div>
+                <div class="step">Step 3: Payment</div>
+            </div>
+            <div id="step1">
+                <p class="urgency">Only 3 spots left for this trip! 20% off if booked before midnight. 500+ travelers booked this package last month.</p>
+                <form id="booking-form-step1">
+                    <label for="destination">Destination:</label>
+                    <select id="destination" required>
+                        <option value="">Select Destination</option>
+                        <option value="Paris">Paris, France</option>
+                        <option value="Bali">Bali, Indonesia</option>
+                        <option value="New York">New York, USA</option>
+                        <option value="Tokyo">Tokyo, Japan</option>
+                        <option value="Santorini">Santorini, Greece</option>
+                        <option value="Maldives">Maldives</option>
+                        <option value="Dubai">Dubai, UAE</option>
+                        <option value="Thailand">Phuket, Thailand</option>
+                        <option value="Switzerland">Swiss Alps, Switzerland</option>
+                        <option value="Iceland">Reykjavik, Iceland</option>
+                        <option value="Morocco">Marrakech, Morocco</option>
+                        <option value="Brazil">Rio de Janeiro, Brazil</option>
+                        <option value="Egypt">Cairo, Egypt</option>
+                        <option value="Australia">Sydney, Australia</option>
+                        <option value="India">Goa, India</option>
+                        <option value="Turkey">Cappadocia, Turkey</option>
+                        <option value="Peru">Machu Picchu, Peru</option>
+                        <option value="Kenya">Masai Mara, Kenya</option>
+                        <option value="Norway">Norwegian Fjords, Norway</option>
+                        <option value="Vietnam">Ha Long Bay, Vietnam</option>
+                        <option value="Jordan">Petra, Jordan</option>
+                        <option value="Philippines">Palawan, Philippines</option>
+                        <option value="Croatia">Dubrovnik, Croatia</option>
+                        <option value="Nepal">Kathmandu, Nepal</option>
+                        <option value="Chile">Patagonia, Chile</option>
+                    </select>
+                    <label for="start-date">Start Date:</label>
+                    <input type="date" id="start-date" required min="2025-09-03">
+                    <label for="end-date">Return Date:</label>
+                    <input type="date" id="end-date" required>
+                    <label>Number of Travelers:</label>
+                    <input type="number" id="adults" placeholder="Adults" min="1" value="1" required>
+                    <input type="number" id="children" placeholder="Children" min="0" value="0">
+                    <input type="number" id="infants" placeholder="Infants" min="0" value="0">
+                    <label for="package">Package:</label>
+                    <select id="package" required>
+                        <option value="">Select Package</option>
+                        <option value="Beach Getaway">Beach Getaway</option>
+                        <option value="Mountain Adventure">Mountain Adventure</option>
+                        <option value="City Explorer">City Explorer</option>
+                    </select>
+                    <label for="accommodation">Accommodation:</label>
+                    <select id="accommodation" required>
+                        <option value="">Select Accommodation</option>
+                        <option value="3-Star Hotel">3-Star Hotel</option>
+                        <option value="4-Star Hotel">4-Star Hotel</option>
+                        <option value="5-Star Hotel">5-Star Hotel</option>
+                    </select>
+                    <label for="transport">Transportation:</label>
+                    <select id="transport" required>
+                        <option value="">Select Transportation</option>
+                        <option value="Flight">Flight</option>
+                        <option value="Train">Train</option>
+                        <option value="Car">Car</option>
+                    </select>
+                    <div class="add-ons">
+                        <label>Add-ons:</label>
+                        <input type="checkbox" id="insurance" value="100">Travel Insurance (+$100)
+                        <input type="checkbox" id="pickup" value="50">Airport Pickup (+$50)
+                        <input type="checkbox" id="activities" value="200">Extra Activities (+$200)
+                    </div>
+                    <label for="coupon">Discount Code:</label>
+                    <input type="text" id="coupon" placeholder="Enter Coupon">
+                    <div class="price-breakdown">
+                        <p>Base Price: $<span id="base-price">1000</span></p>
+                        <p>Flight: $<span id="flight-price">0</span></p>
+                        <p>Hotel: $<span id="hotel-price">0</span></p>
+                        <p>Activities: $<span id="activities-price">0</span></p>
+                        <p>Taxes: $<span id="taxes">100</span></p>
+                        <p>Total: $<span id="total-price">1100</span></p>
+                    </div>
+                    <button type="button" class="cta-button" onclick="nextStep(1)">Next</button>
+                </form>
+            </div>
+            <div id="step2" style="display:none;">
+                <form id="booking-form-step2">
+                    <label for="full-name">Full Name:</label>
+                    <input type="text" id="full-name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" required>
+                    <label for="special-requests">Special Requests:</label>
+                    <textarea id="special-requests"></textarea>
+                    <label for="passport">Passport Number (if international):</label>
+                    <input type="text" id="passport">
+                    <label for="emergency-contact">Emergency Contact:</label>
+                    <input type="text" id="emergency-contact">
+                    <button type="button" class="cta-button" onclick="prevStep(2)">Previous</button>
+                    <button type="button" class="cta-button" onclick="nextStep(2)">Next</button>
+                </form>
+            </div>
+            <div id="step3" style="display:none;">
+                <form id="booking-form-step3">
+                    <label>Payment Method:</label>
+                    <div class="payment-options">
+                        <input type="radio" name="payment" value="Credit Card" checked> Credit/Debit Card <span class="refund-info">(Refundable)</span><br>
+                        <input type="radio" name="payment" value="Net Banking"> Net Banking <span class="refund-info">(Non-refundable)</span><br>
+                        <input type="radio" name="payment" value="UPI"> UPI <span class="refund-info">(Refundable)</span><br>
+                        <input type="radio" name="payment" value="PayPal"> PayPal <span class="refund-info">(Refundable)</span>
+                    </div>
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                    <label for="expiry">Expiry Date:</label>
+                    <input type="text" id="expiry" placeholder="MM/YY">
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" placeholder="123">
+                    <label for="billing-address">Billing Address:</label>
+                    <textarea id="billing-address"></textarea>
+                    <div class="trust-badges">
+                        <i class="fas fa-shield-alt" title="SSL Secured"></i>
+                        <i class="fas fa-credit-card" title="Secure Payment"></i>
+                        <i class="fas fa-lock" title="256-bit Encryption"></i>
+                    </div>
+                    <p>Need help? <span class="support-link" onclick="alert('Support: Call +1-800-123-4567 or email support@tripnest.com')">Contact Support</span></p>
+                    <div class="refund-info">
+                        <p><strong>Cancellation Policy:</strong> Free cancellation up to 24 hours before departure. 50% refund up to 7 days before.</p>
+                    </div>
+                    <button type="button" class="cta-button" onclick="prevStep(3)">Previous</button>
+                    <button type="submit" class="cta-button" onclick="submitBooking()">Complete Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
