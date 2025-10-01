@@ -126,7 +126,7 @@ Contributions, issue reports, and feature suggestions are highly welcomed! If yo
 **G Shiva Ram Reddy**
 
 * **GitHub:** [Shiva3505](https://github.com/Shiva3505)
-* **LinkedIn:** [Profile]([Your actual LinkedIn URL here])
+* **LinkedIn:** [https://github.com/Shiva3505]
 * **Email:** Shiva03505@gmail.com
 * **Phone:** +917801043389
 
